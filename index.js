@@ -9,7 +9,11 @@ inputBtn.addEventListener("click", function () {
 
     // TODO: list out url's
     let li = document.createElement("li");
-    li.append(userSearched);
+    let a = document.createElement("a");
+    a.append(userSearched);
+    a.setAttribute("href", userSearched);
+    a.setAttribute("target", "_blank");
+    li.append(a);
     listUrl.append(li);
 
     inputEl.value = "";
