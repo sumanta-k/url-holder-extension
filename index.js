@@ -17,5 +17,4 @@ inputBtn.addEventListener("click", function () {
     listUrl.append(li);
 
     inputEl.value = "";
-    console.log(myLeads);
 });
