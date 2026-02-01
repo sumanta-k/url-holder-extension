@@ -1,0 +1,10 @@
+{
+    "name": "url-holder",
+    "description": "holding url's for quick navigation",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "sticky-notes.png"
+    }
+}
