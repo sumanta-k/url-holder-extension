@@ -33,3 +33,7 @@ saveBtn.addEventListener("click", () => {
     createUrlAndUpdateDom();
     clearInputField();
 });
+
+deleteBtn.addEventListener("dblclick", () => {
+    localStorage.clear();
+    myUrlListArray = [];
