@@ -1,11 +1,10 @@
-const inputBtn = document.querySelector("#input-btn");
-let inputEl = document.querySelector("#input-el");
+const saveBtn = document.querySelector("#save-btn");
+let inputElement = document.querySelector("#input-el");
 let listUrl = document.querySelector("#list-url");
-let myLeads = [];
+let myUrlListArray = [];
 
-inputBtn.addEventListener("click", function () {
-    let userSearched = inputEl.value;
-    myLeads.push(userSearched);
+// first store the value into array
+// how ?
 
 function storeUrlIntoArray() {
     let userEnteredUrl = inputElement.value;
