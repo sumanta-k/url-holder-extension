@@ -7,10 +7,10 @@ inputBtn.addEventListener("click", function () {
     let userSearched = inputEl.value;
     myLeads.push(userSearched);
 
-    // TODO: list out url's
-    let li = document.createElement("li");
-    let a = document.createElement("a");
-    a.append(userSearched);
+function storeUrlIntoArray() {
+    let userEnteredUrl = inputElement.value;
+    myUrlListArray.push(userEnteredUrl);
+}
     a.setAttribute("href", userSearched);
     a.setAttribute("target", "_blank");
     li.append(a);
