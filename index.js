@@ -15,5 +15,8 @@ function storeUrlIntoArray() {
     li.append(a);
     listUrl.append(li);
 
-    inputEl.value = "";
+saveBtn.addEventListener("click", () => {
+    storeUrlIntoArray();
+    createUrlAndUpdateDom();
+    clearInputField();
 });
