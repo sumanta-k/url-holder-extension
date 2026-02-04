@@ -10,10 +10,19 @@ function storeUrlIntoArray() {
     let userEnteredUrl = inputElement.value;
     myUrlListArray.push(userEnteredUrl);
 }
-    a.setAttribute("href", userSearched);
+
+function createUrlAndUpdateDom() {
+    let url = inputElement.value;
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.append(url);
+    a.setAttribute("href", url);
     a.setAttribute("target", "_blank");
     li.append(a);
+
     listUrl.append(li);
+}
+
 function clearInputField() {
     inputElement.value = "";
 }
