@@ -29,6 +29,7 @@ function clearInputField() {
 
 saveBtn.addEventListener("click", () => {
     storeUrlIntoArray();
+    localStorage.setItem("myUrls", JSON.stringify(myUrlListArray));
     createUrlAndUpdateDom();
     clearInputField();
 });
