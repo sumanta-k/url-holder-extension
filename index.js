@@ -14,6 +14,9 @@ function storeUrlIntoArray() {
     a.setAttribute("target", "_blank");
     li.append(a);
     listUrl.append(li);
+function clearInputField() {
+    inputElement.value = "";
+}
 
 saveBtn.addEventListener("click", () => {
     storeUrlIntoArray();
