@@ -13,23 +13,13 @@ if (UrlListFromLocalStorage) {
 // first store the value into array
 // how ?
 
-function storeUrlIntoArray() {
-    let userEnteredUrl = inputElement.value;
-    myUrlListArray.push(userEnteredUrl);
-    localStorage.setItem("myUrls", JSON.stringify(myUrlListArray));
-}
-
-function createUrlAndUpdateDom() {
-    let url = inputElement.value;
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.append(url);
-    a.setAttribute("href", url);
-    a.setAttribute("target", "_blank");
-    li.append(a);
-
-    listUrl.append(li);
-}
+tabBtn.addEventListener("click", function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        myLeads.push(tabs[0].url);
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
+        render(myLeads);
+    });
+});
 
 function clearInputField() {
     inputElement.value = "";
