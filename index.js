@@ -1,7 +1,9 @@
 const saveBtn = document.querySelector("#save-btn");
+const deleteBtn = document.querySelector("#delete-btn");
 let inputElement = document.querySelector("#input-el");
 let listUrl = document.querySelector("#list-url");
 let myUrlListArray = [];
+let UrlListFromLocalStorage = JSON.parse(localStorage.getItem("myUrls"));
 
 // first store the value into array
 // how ?
