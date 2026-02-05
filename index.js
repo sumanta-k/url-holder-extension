@@ -40,3 +40,6 @@ saveBtn.addEventListener("click", () => {
 deleteBtn.addEventListener("dblclick", () => {
     localStorage.clear();
     myUrlListArray = [];
+    createUrlAndUpdateDom();
+    listUrl.innerHTML = "";
+});
