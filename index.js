@@ -1,17 +1,15 @@
-let saveBtn = document.querySelector("#save-btn");
-let saveTab = document.querySelector("#save-current-tab-btn");
-const deleteBtn = document.querySelector("#delete-btn");
-let inputElement = document.querySelector("#input-el");
-let listUrl = document.querySelector("#list-url");
-let myUrlListArray = [];
-let UrlListFromLocalStorage = JSON.parse(localStorage.getItem("myUrls"));
+let myLeads = [];
+const inputEl = document.getElementById("input-el");
+const inputBtn = document.getElementById("input-btn");
+const ulEl = document.getElementById("ul-el");
+const deleteBtn = document.getElementById("delete-btn");
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+const tabBtn = document.getElementById("tab-btn");
 
-if (UrlListFromLocalStorage) {
-    myUrlListArray = UrlListFromLocalStorage;
-    createUrlAndUpdateDom();
+if (leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage;
+    render(myLeads);
 }
-// first store the value into array
-// how ?
 
 tabBtn.addEventListener("click", function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -21,20 +19,29 @@ tabBtn.addEventListener("click", function () {
     });
 });
 
-function clearInputField() {
-    inputElement.value = "";
+function render(leads) {
+    let listItems = "";
+    for (let i = 0; i < leads.length; i++) {
+        listItems += `
+            <li>
+                <a target='_blank' href='${leads[i]}'>
+                    ${leads[i]}
+                </a>
+            </li>
+        `;
+    }
+    ulEl.innerHTML = listItems;
 }
 
-saveBtn.addEventListener("click", () => {
-    storeUrlIntoArray();
-    localStorage.setItem("myUrls", JSON.stringify(myUrlListArray));
-    createUrlAndUpdateDom();
-    clearInputField();
+deleteBtn.addEventListener("dblclick", function () {
+    localStorage.clear();
+    myLeads = [];
+    render(myLeads);
 });
 
-deleteBtn.addEventListener("dblclick", () => {
-    localStorage.clear();
-    myUrlListArray = [];
-    createUrlAndUpdateDom();
-    listUrl.innerHTML = "";
+inputBtn.addEventListener("click", function () {
+    myLeads.push(inputEl.value);
+    inputEl.value = "";
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
+    render(myLeads);
 });
