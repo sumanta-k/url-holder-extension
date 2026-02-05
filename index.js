@@ -11,6 +11,7 @@ let UrlListFromLocalStorage = JSON.parse(localStorage.getItem("myUrls"));
 function storeUrlIntoArray() {
     let userEnteredUrl = inputElement.value;
     myUrlListArray.push(userEnteredUrl);
+    localStorage.setItem("myUrls", JSON.stringify(myUrlListArray));
 }
 
 function createUrlAndUpdateDom() {
