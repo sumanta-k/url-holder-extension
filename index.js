@@ -12,6 +12,7 @@ if (leadsFromLocalStorage) {
 }
 
 tabBtn.addEventListener("click", function () {
+    // chrome api using it for to get the current window
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         myLeads.push(tabs[0].url);
         localStorage.setItem("myLeads", JSON.stringify(myLeads));
