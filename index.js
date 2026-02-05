@@ -1,10 +1,15 @@
-const saveBtn = document.querySelector("#save-btn");
+let saveBtn = document.querySelector("#save-btn");
+let saveTab = document.querySelector("#save-current-tab-btn");
 const deleteBtn = document.querySelector("#delete-btn");
 let inputElement = document.querySelector("#input-el");
 let listUrl = document.querySelector("#list-url");
 let myUrlListArray = [];
 let UrlListFromLocalStorage = JSON.parse(localStorage.getItem("myUrls"));
 
+if (UrlListFromLocalStorage) {
+    myUrlListArray = UrlListFromLocalStorage;
+    createUrlAndUpdateDom();
+}
 // first store the value into array
 // how ?
 
